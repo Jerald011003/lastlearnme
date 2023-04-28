@@ -1,0 +1,55 @@
+.subscription-screen {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .subscription-column {
+    width: 45%;
+  }
+  
+  .subscription-card {
+    background-color: #000000;
+    border: 1px solid #0e0d0d;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .subscription-card h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .subscription-card p {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .subscription-card ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 20px;
+  }
+  
+  .subscription-card li {
+    margin-bottom: 5px;
+  }
+  
+  .subscription-card button {
+    background-color: #000000;
+    border: none;
+    border-radius: 5px;
+    color: #000000;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px;
+    width: 100%;
+  }
+  
+  .subscription-card button:hover {
+    background-color: #3bffef;
+  }

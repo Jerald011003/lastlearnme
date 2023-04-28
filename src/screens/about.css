@@ -1,0 +1,44 @@
+.card {
+  width: 400px;
+  margin: 0 auto;
+  margin-top: 200px;
+  padding: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  background-color: rgba(65, 64, 64, 0.8); 
+}
+
+.card h1 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.form-control {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.py-3 {
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+.btn-primary {
+  width: 100%;
+  background-color: #000000;
+  border-color: #000000;
+}
+
+.btn-primary:hover {
+  background-color: #161c22;
+  border-color: #080a0c;
+}
+
+.btn-primary:focus,
+.btn-primary.focus {
+  box-shadow: 0 0 0 0.2rem rgba(18, 19, 19, 0.5);
+}
+

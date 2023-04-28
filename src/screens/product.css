@@ -1,0 +1,145 @@
+.container {
+    display: flex;
+    padding: 0 55px;
+ 
+  }
+  
+  .item {
+    background: rgb(10, 12, 10);
+    flex: 0 0 19.7%;
+    text-align: center;
+    margin: 0 2px;
+    transition: transform 300ms ease 100ms;
+  }
+
+  .container:hover .item {
+    transform: translateX(-25%);
+ }
+
+ .item:hover ~ .item {
+    transform: translateX(25%);
+ }
+
+ .item:hover {
+    transform: scale(1.5) !important;
+  }
+  .content {
+    margin-top: 40px;
+    width: 250px; 
+    height: 100px;
+    position: relative;
+  }
+  
+  .background {
+    display: flex;
+    height: 100%;
+  }
+  
+  .left {
+    background: black;
+    width: 30%;
+    position: relative;
+  }
+  
+  .left:before {
+    content: '';
+    position: absolute;
+    background-image: linear-gradient(to right,#000,transparent);
+    top: 0;
+    bottom: 0;
+    left: 100%;
+    width: 275px;
+  }
+  
+  .right {
+    background: green;
+    width: 70%;
+  }
+  
+  .content-container {
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 30px
+  }
+  
+
+/* 
+  Hero */
+
+.hero-image-wrapper {
+
+  width: 500px ;
+}
+
+.product-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.product-screen__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.product-screen__title {
+  font-size: 36px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.product-screen__play-button {
+  background-color: red;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.product-screen__play-button:hover {
+  background-color: darkred;
+}
+
+.product-screen__info {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.product-screen__poster {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.product-screen__poster img {
+  width: 100%;
+}
+
+.product-screen__details {
+  flex: 2;
+}
+
+.product-screen__details ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.product-screen__details li {
+  margin-bottom: 10px;
+}
+
+.product-screen__details strong {
+  font-weight: bold;
+  margin-right: 10px;
+}

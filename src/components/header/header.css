@@ -1,0 +1,64 @@
+
+
+.dropDiv {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.dropdownContent {
+    display: none;
+    position: absolute;
+    background-color: #000000;
+    height: 200px;
+    width: 100%;
+    z-index: 1;
+}
+
+.dropdownContent a {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.dropdownContent a:hover {background-color: #000000;}
+
+.dropDiv:hover .dropdownContent {
+    display: block;
+    z-index: 1;
+    height: 200px;
+}
+
+.dropDiv:hover .dropdown {
+    background-color: #050505;
+}
+
+
+.class {
+  width: 10px;
+  height: auto;
+}
+
+
+
+/* .logo {
+    width: 20px;
+    height: 20px;
+} */
+.input {
+    border-radius: 5px;
+    outline: 2px solid #ffcd43;
+    border: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #000000;
+    outline-offset: 3px;
+    padding: 10px 1rem;
+    transition: 0.25s;
+    width: 400px;
+  }
+  
+  .input:focus {
+    outline-offset: 5px;
+    background-color: #000000
+  }
