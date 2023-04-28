@@ -1,67 +1,78 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { Form, Button, Row, Col } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
+import { Form, Button, Row, Col, ListGroup } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import Message from '../components/Message'
 import Loader from '../components/Loader'
-import ppp from './video/ppp.mp4'
+import Message from '../components/Message'
+import FormContainer from '../components/FormContainer'
 import { register } from '../actions/userActions'
+import { PayPalButton } from 'react-paypal-button-v2'
+import { useLocation, useNavigate} from 'react-router-dom'
+function RegisterScreen({ history }) {
 
-import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js"
-function Register() {
-    // const amount = 2
-    const initialOptions = {
-        "client-id": "AYNnCSQdXD2Kuu2aKDoXOeiHyGdmch03IfqadvsPvh8f3Ucz9azwC1_sLP0JfVS9kK1jHimmoVSjg9hf",
-        currency: "USD",
-        intent: "subscription",
-        vault: true,
-      };
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [message, setMessage] = useState('')
-    const location = useLocation()
+    const [sdkReady, setSdkReady] = useState(false)
+    const amount = 2
+    const location = useLocation();
+    let navigate = useNavigate()
+
+    
+    // const applicationPay = useSelector(state => state.applicationPay)
+    // const { loading: loadingPay, success: successPay } = applicationPay
+    
+
+    const userRegister = useSelector(state => state.userRegister)
+    const { error, loading, userInfo } = userRegister
+
+    const addPayPalScript = () => {
+        const script = document.createElement('script')
+        script.type = 'text/javascript'
+        script.src = 'https://www.paypal.com/sdk/js?client-id=Ad_sYPKX7bBbTsOaHRMpt3fNF2ZWXh5w6A1rc96itd9f3UA3wJaTVUBQhIzLXUjADQKQYgNI7jWfqEK1'
+        script.async = true
+        script.onload = () => {
+            setSdkReady(true)
+        }
+        document.body.appendChild(script)
+    }
+
+    const successPaymentHandler = (e) => {
+
+        if (password !== confirmPassword) {
+            setMessage('Passwords do not match')
+        } else {
+            dispatch(register(name, email, password))
+        }
+
+    }
+
     const dispatch = useDispatch()
 
     const redirect = location.search ? location.search.split('=')[1] : '/'
 
-    const userLogin = useSelector(state => state.userLogin)
-    const { error, loading, userInfo } = userLogin
 
-    let navigate = useNavigate()
     useEffect(() => {
         if (userInfo) {
             navigate(redirect)
         }
-    }, [userInfo, navigate, redirect])
+    }, [history, userInfo, redirect])
 
     const submitHandler = (e) => {
-      e.preventDefault()
 
-      if (password != confirmPassword) {
-          setMessage('Passwords do not match')
-      } else {
-          dispatch(register(name, email, password))
-      }
+        if (password = confirmPassword) {
+            setMessage('Passwords do not match')
+        } else {
+            dispatch(register(name, email, password))
+        }
 
-  }
-
-  const successPaymentHandler = (e) => {
-
-    if (password !== confirmPassword) {
-        setMessage('Passwords do not match')
-    } else {
-        dispatch(register(name, email, password))
     }
 
-}
     return (
-       <div>
-            <video className='source' src={ppp} autoPlay loop muted style={{ position: 'absolute', top: 450, left: 960, width: '100%', height: '100%', objectFit: 'cover' }}>
-        <source src={ppp} type="video/mp4" />
-      </video>
-      <div className='card'>
+        <FormContainer>
+            <h1>Register</h1>
             {message && <Message variant='danger'>{message}</Message>}
             {error && <Message variant='danger'>{error}</Message>}
             {loading && <Loader />}
@@ -114,20 +125,11 @@ function Register() {
                     >
                     </Form.Control>
                 </Form.Group>
-             
-
-                {/* <PayPalScriptProvider>
-               <PayPalButtons onApprove={successPaymentHandler} classname='text-center'type='submit' variant='primary'
-               
+                <br></br>
+                <PayPalButton type='submit' variant='primary'
+                amount={amount}
+                onApprove={successPaymentHandler}
                 />
-
-          </PayPalScriptProvider> */}
-
-<Button type='submit' variant='primary'>
-                    Register
-                </Button>
-
-   
 
             </Form>
 
@@ -139,9 +141,8 @@ function Register() {
                         </Link>
                 </Col>
             </Row>
-            </div>
-            </div>
+        </FormContainer >
     )
 }
 
-export default Register
+export default RegisterScreen
