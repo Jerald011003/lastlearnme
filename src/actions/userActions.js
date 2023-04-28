@@ -35,7 +35,7 @@ export const login = (username, password) => async (dispatch) => {
       }
 
       const { data } = await axios.post(
-          'https://kristianadmin.pythonanywhere.comapi/users/login/',
+          'https://kristianadmin.pythonanywhere.com/api/users/login/',
           { 'username': username, 'password': password },
           config
       )
