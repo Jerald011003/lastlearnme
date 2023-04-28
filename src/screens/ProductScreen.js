@@ -145,7 +145,7 @@ function ProductScreen() {
     <ProductCarousel/>
 
 
-      {/* <Slider>
+      <Slider>
         
           {movies.map(movie => (
             <Slider.Item movie={movie} key={movie.id}
@@ -168,7 +168,7 @@ function ProductScreen() {
             value={movies.rating}>item1</Slider.Item>
           ))}
          
-        </Slider> */}
+        </Slider>
    
         </>
     
