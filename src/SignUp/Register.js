@@ -114,16 +114,20 @@ function Register() {
                     >
                     </Form.Control>
                 </Form.Group>
-                <div className='text-center'>
+             
 
-                <PayPalScriptProvider options={{"client-id": "AYNnCSQdXD2Kuu2aKDoXOeiHyGdmch03IfqadvsPvh8f3Ucz9azwC1_sLP0JfVS9kK1jHimmoVSjg9hf"}}>
-               <PayPalButtons classname='text-center'type='submit' variant='primary'
-                // amount={amount}
-                onApprove={successPaymentHandler}
+                {/* <PayPalScriptProvider>
+               <PayPalButtons onApprove={successPaymentHandler} classname='text-center'type='submit' variant='primary'
+               
                 />
 
-          </PayPalScriptProvider>
-          </div>
+          </PayPalScriptProvider> */}
+
+<Button type='submit' variant='primary'>
+                    Register
+                </Button>
+
+   
 
             </Form>
 
